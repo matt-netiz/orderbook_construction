@@ -24,6 +24,7 @@ def extract_orderbooks(name, input_folder, output_folder):
     precisions = [1e-3,1e-4]
     if os.path.exists(os.path.join(output_folder,f'{name}_compressed_10bps.csv')):
         return False
+    print(f"Extracting orderbooks from {name}")
     orderbook_updates = pd.read_csv(os.path.join(input_folder,f'{name}.csv'))
         
     # orderbook must be reinitialized at each snapshot + 1m rows limit not to saturate memory with no 
