@@ -1,4 +1,5 @@
 # orderbook_construction
+Place the update files in the "input" folder
 
 Extract one file 
 ```
