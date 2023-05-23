@@ -73,7 +73,7 @@ def extract_orderbooks(name, input_folder, output_folder):
     # Store results
     for precision in precisions:
         orderbook_compressed = pd.concat(res[precision])
-        orderbook_compressed.to_csv(os.path.join(output_folder,f'{name}_compressed_{int(1e4*precision)}bps.csv'))
+        orderbook_compressed.to_parquet(os.path.join(output_folder,f'{name}_compressed_{int(1e4*precision)}bps.parquet'))
     return True
 
 if __name__ == '__main__':
