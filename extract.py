@@ -51,7 +51,7 @@ def extract_orderbooks(name, input_folder, output_folder):
         
         #reconstruct orderbook with batch
         most_recent_orders = update_batch \
-            .assign(minute = lambda x: np.ceil(x['timestamp']/6e7)*6e7) \
+            .assign(minute = lambda x: np.ceil(x['local_timestamp']/6e7)*6e7) \
             .groupby(['minute','side','price'])['amount'].last() \
             .unstack(['side','price']).ffill().replace(0,np.NaN)
         
